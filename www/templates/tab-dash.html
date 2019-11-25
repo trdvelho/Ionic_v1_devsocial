@@ -1,0 +1,23 @@
+<ion-view view-title="Devs to know">
+  <ion-content class="padding">
+    <ion-card ng-repeat="dev in devs">
+      <div class="card">
+        <img src={{dev.avatar}} />
+        <h4>{{dev.name}}</h4>
+        <p ng-if="dev.bio">{{dev.bio}}</p>
+        <p ng-if="!dev.bio">Gituser does not have a bio</p>
+
+        <div class="card-footer">
+            <button class="button button-balanced x-button" ng-click="dislike(dev,$index)" ng-disabled="logging" >
+              X
+            </button>
+
+            <button class="button button-balanced l-button" ng-click="like(dev,$index)" ng-disabled="logging" >
+              L
+            </button>
+        </div>
+      </div>
+
+    </ion-card>
+  </ion-content>
+</ion-view>

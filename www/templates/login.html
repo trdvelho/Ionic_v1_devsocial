@@ -1,0 +1,50 @@
+<ion-view hide-nav-bar="true">
+    <ion-content ng-controller='LoginCtrl as login' >
+      <div class="login">
+        <div class="box">
+          <form name="myForm" novalidate>
+              <div>
+                  <label class="">
+                    <span class="input-label">GitHub User</span>
+                    <input type="text"  name="username" ng-model="username" required>
+
+                  <label class="">
+                      <span class="input-label">Password</span>
+                      <input type="password" name="password" ng-model="password" ng-minlength="6" required>
+                  </label>
+              </div>
+
+              <div class="padding">
+                  <button type="button" class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="clicking(username, password)">Criar usuário / Entrar</button>
+              </div>
+          </form>
+
+          <div class="padding" style="position: absolute">
+              <p ng-show="myForm.username.$error.required">* Username is required</p>
+              <p ng-show="myForm.username.$invalid && !myForm.username.$pristine">* Username must be an email address</p>
+              <!-- <p ng-show="myForm.username.$error.minlength">* Username must be longer than 5 characters</p> -->
+              <p ng-show="myForm.password.$error.required">* Password is required</p>
+              <p ng-show="myForm.password.$error.minlength">* Password must be longer than 6 characters</p>
+          </div>
+
+      <!-- <div class="box"> -->
+        <!-- <div class="title">DEVAPP</div>
+          <input ng-model="login.gituser" placeholder="Git Hub User " ng-focus="myFunc($event)"></input>
+
+          <button class="button button-balanced" ng-click="clicking()" ng-disabled="logging" >
+            Enviar
+          </button>-->
+          <div class="div_spinner" >
+            <ion-spinner ng-if="logging"></ion-spinner>
+            <div ng-if="error">
+              {{error}}
+            </div>
+            </ng-hide>
+          </div>
+    </div>
+
+
+    </ion-content>
+
+    <img src={{user.avatar}} />
+  </ion-view>
